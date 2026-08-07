@@ -40,7 +40,7 @@ const fetchWitches = async () => {
     // Atualiza o estado da lista
     setWitches(data);
 
-    setFilteredWitches(data); 
+    setFilteredWitches(data);
   } catch (error) {
     console.error("Erro ao buscar as bruxas: ", error);
   } finally {
@@ -57,7 +57,7 @@ const renderItem = ({ item }) => (
       resizeMode="contain"
     />
     <View style={styles.info}>
-      
+
       <Text style={styles.title}>
         {item.name}
       </Text>
@@ -105,101 +105,98 @@ return (
 );
 }
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#1b1b1b',
-    paddingTop: 50,
-  },
-
-  headerTitle: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-    color: '#D4AF37',
-    textShadowColor: '#740001',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 4,
-  },
-
- search: {
-  backgroundColor: '#F3E5C3',
-  marginHorizontal: 15,
-  marginBottom: 20,
-  paddingHorizontal: 18,
-  height: 52,
-  borderRadius: 12,
-  borderWidth: 2,
-  borderColor: '#8B5A2B',
-  color: '#3B1F0B',
-  fontSize: 16,
-
-  shadowColor: '#000',
-  shadowOpacity: 0.25,
-  shadowOffset: {
-    width: 0,
-    height: 3,
-  },
-  shadowRadius: 5,
-  elevation: 5,
-},
-
-  list: {
-    paddingHorizontal: 15,
-    paddingBottom: 20,
-  },
-
-  card: {
-    backgroundColor: '#3A0D0D',
-    borderRadius: 15,
-    marginBottom: 18,
-    flexDirection: 'row',
-    padding: 15,
-    borderWidth: 2,
-    borderColor: '#D4AF37',
-
-    shadowColor: '#D4AF37',
-    shadowOpacity: 0.4,
-    shadowOffset: {
-      width: 0,
-      height: 3,
+    container: {
+        flex: 1,
+        backgroundColor: '#F5F1E8',
+        paddingTop: 50,
     },
-    shadowRadius: 6,
-    elevation: 6,
-  },
 
-  image: {
-    width: 90,
-    height: 120,
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: '#D4AF37',
-    backgroundColor: '#fff',
-    marginRight: 15,
-  },
+    headerTitle: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: '#5B2C06',
+        marginBottom: 20,
+        letterSpacing: 1,
+    },
 
-  info: {
-    flex: 1,
-    justifyContent: 'center',
-  },
+    search: {
+        backgroundColor: '#FFFFFF',
+        marginHorizontal: 20,
+        marginBottom: 20,
+        paddingHorizontal: 15,
+        height: 50,
+        borderRadius: 30,
+        borderWidth: 1.5,
+        borderColor: '#A67C52',
+        fontSize: 16,
+        color: '#333',
 
-  title: {
-    fontSize: 19,
-    fontWeight: 'bold',
-    color: '#F5E6C8',
-    marginBottom: 8,
-  },
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowRadius: 4,
+        elevation: 4,
+    },
 
-  category: {
-    fontSize: 15,
-    color: '#D4AF37',
-    marginBottom: 6,
-    fontWeight: '600',
-  },
+    loader: {
+        marginTop: 40,
+    },
 
-  price: {
-    fontSize: 16,
-    color: '#FFFFFF',
-    fontWeight: 'bold',
-  },
+    list: {
+        paddingHorizontal: 20,
+        paddingBottom: 20,
+    },
+
+    card: {
+        backgroundColor: '#FFFFFF',
+        borderRadius: 18,
+        marginBottom: 18,
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 15,
+
+        shadowColor: '#000',
+        shadowOpacity: 0.15,
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowRadius: 5,
+        elevation: 5,
+    },
+
+    image: {
+        width: 90,
+        height: 120,
+        borderRadius: 12,
+        marginRight: 15,
+    },
+
+    info: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#5B2C06',
+        marginBottom: 8,
+    },
+
+    category: {
+        fontSize: 16,
+        color: '#8B5A2B',
+        marginBottom: 5,
+    },
+
+    price: {
+        fontSize: 15,
+        color: '#555',
+        fontWeight: '600',
+    },
 });
