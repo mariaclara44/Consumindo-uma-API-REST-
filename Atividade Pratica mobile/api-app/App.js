@@ -16,10 +16,10 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [filteredWitches, setFilteredWitches] = useState([]);
 
-  // Executa uma vez assim que o aplicativo inicia
-  useEffect(() => {
-    fetchWitches();
-  }, []);
+
+useEffect(() => {
+  fetchActors();
+}, []);
 
   useEffect(() => {
   const resultado = witches.filter((item) =>
@@ -29,33 +29,35 @@ export default function App() {
   setFilteredWitches(resultado);
 }, [search, witches]);
 
-const fetchWitches = async () => {
+const fetchActors = async () => {
   try {
-    // Faz a requisição na Fake Store API
-    const response = await fetch('https://gateway.marvel.com/v1/public/characters');
+  const response = await fetch(
+  'https://api.tvmaze.com/people'
+);
 
-    // Converte o resultado para JSON
     const data = await response.json();
 
-    // Atualiza o estado da lista
     setWitches(data);
-
     setFilteredWitches(data);
+
   } catch (error) {
-    console.error("Erro ao buscar as bruxas: ", error);
+    console.error("Erro ao buscar atores: ", error);
   } finally {
-    // Remove o indicador de carregamento
     setLoading(false);
   }
 };
 
 const renderItem = ({ item }) => (
   <View style={styles.card}>
+
     <Image
-      source={{ uri: item.image }}
+      source={{
+        uri: item.image?.medium
+      }}
       style={styles.image}
-      resizeMode="contain"
+      resizeMode="cover"
     />
+
     <View style={styles.info}>
 
       <Text style={styles.title}>
@@ -63,47 +65,51 @@ const renderItem = ({ item }) => (
       </Text>
 
       <Text style={styles.category}>
-        Casa: {item.house}
+        País: {item.country?.name || "Não informado"}
       </Text>
 
       <Text style={styles.price}>
-       Ator: {item.actor}
+        Nascimento: {item.birthday || "Não informado"}
       </Text>
+
     </View>
+
   </View>
 );
-
 return (
   <SafeAreaView style={styles.container}>
+
     <Text style={styles.headerTitle}>
-      💫 Personagens de Harry Potter 💫
+      🎬 Atores e Atrizes Famosos 🎬
     </Text>
 
-  <TextInput
-  style={styles.search}
-  placeholder="🔍 Pesquisar personagem..."
-  placeholderTextColor="#777"
-  value={search}
-  onChangeText={setSearch}
-/>
+    <TextInput
+      style={styles.search}
+      placeholder="Pesquisar ator..."
+      value={search}
+      onChangeText={setSearch}
+    />
 
     {loading ? (
       <ActivityIndicator
         size="large"
-        color="#ff6347"
+        color="#ED1D24"
         style={styles.loader}
       />
     ) : (
       <FlatList
         data={filteredWitches}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}
         contentContainerStyle={styles.list}
       />
     )}
+
   </SafeAreaView>
 );
 }
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -199,4 +205,10 @@ const styles = StyleSheet.create({
         color: '#555',
         fontWeight: '600',
     },
+
+    container: {
+    flex: 1,
+    backgroundColor: '#111',
+    addingTop: 40,
+},
 });
