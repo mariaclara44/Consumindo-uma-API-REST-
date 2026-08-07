@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 
 export default function App() {
-
   const [witches, setWitches] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -49,7 +48,6 @@ const fetchWitches = async () => {
     setLoading(false);
   }
 };
-
 
 const renderItem = ({ item }) => (
   <View style={styles.card}>
