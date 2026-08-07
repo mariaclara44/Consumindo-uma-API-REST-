@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
     textShadowRadius: 4,
   },
 
-  // Barra de pesquisa
  search: {
   backgroundColor: '#F3E5C3',
   marginHorizontal: 15,
