@@ -6,5 +6,4 @@ const filmes = [
 ];
 
 filmes.sort((a, b) => a.ano - b.ano);
-
 console.log(filmes);
