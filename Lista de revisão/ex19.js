@@ -18,7 +18,6 @@ const nomes = produtos.map((produto) => produto.nome);
 //d) Use find() para encontrar o produto de id 5.
 const produto = produtos.find(produtos => produtos.id === 5)
 
-
 console.log(precoMenor); 
 console.log(produtos); 
 console.log(nomes);

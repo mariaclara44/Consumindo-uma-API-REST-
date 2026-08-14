@@ -31,4 +31,3 @@ console.log(filmes);
 console.log(titulos);
 console.log(filme);
 console.log(resultado);
-

@@ -6,5 +6,4 @@ const filmes = [
 ];
 
 const filme = filmes.find(filmes => filmes.id === 4)
-
 console.log(filme);
